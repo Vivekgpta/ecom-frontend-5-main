@@ -37,7 +37,7 @@ const Navbar = ({onSelectCategory},  ) => {
       setShowSearchResults(true)
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/product/search?keyword=${value}`
+        `https://e-kirana-shop.onrender.com/api/product/search?keyword=${value}`
       );
       setSearchResults(response.data);
       setNoResults(response.data.length === 0);
