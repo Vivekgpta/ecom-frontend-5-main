@@ -20,7 +20,7 @@ const Product = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/product/${id}`
+          `https://e-kirana-shop.onrender.com/api/product/${id}`
         );
         setProduct(response.data);
         if (response.data.imageName) {
