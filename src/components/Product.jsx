@@ -20,7 +20,7 @@ const Product = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/product/${id}`
+          `https://e-kirana-shop.onrender.com/api/product/${id}`
         );
         setProduct(response.data);
         if (response.data.imageName) {
@@ -33,7 +33,7 @@ const Product = () => {
 
     const fetchImage = async () => {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/product/${id}/image`,
+        `https://e-kirana-shop.onrender.com/api/product/${id}/image`,
         { responseType: "blob" }
       );
       setImageUrl(URL.createObjectURL(response.data));
@@ -44,7 +44,7 @@ const Product = () => {
 
   const deleteProduct = async () => {
     try {
-      await axios.delete(`${import.meta.env.VITE_API_URL}/product/${id}`);
+      await axios.delete(`https://e-kirana-shop.onrender.com/api/product/${id}`);
       removeFromCart(id);
       console.log("Product deleted successfully");
       alert("Product deleted successfully");
