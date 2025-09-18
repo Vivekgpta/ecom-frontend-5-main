@@ -23,13 +23,13 @@ const UpdateProduct = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `https://e-kirana-shop.onrender.com/api/product/${id}`
+          `${import.meta.env.VITE_API_URL}/product/${id}`
         );
 
         setProduct(response.data);
       
         const responseImage = await axios.get(
-          `https://e-kirana-shop.onrender.com/api/product/${id}/image`,
+          `${import.meta.env.VITE_API_URL}/product/${id}/image`,
           { responseType: "blob" }
         );
        const imageFile = await converUrlToFile(responseImage.data,response.data.imageName)
@@ -68,7 +68,7 @@ const UpdateProduct = () => {
 
   console.log("formData : ", updatedProduct)
     axios
-      .put(`https://e-kirana-shop.onrender.com/api/product/${id}`, updatedProduct, {
+      .put(`${import.meta.env.VITE_API_URL}/product/${id}`, updatedProduct, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

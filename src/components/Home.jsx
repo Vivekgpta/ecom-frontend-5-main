@@ -24,7 +24,7 @@ const Home = ({selectedCategory}) => {
           data.map(async (product) => {
             try {
               const response = await axios.get(
-                (`https://e-kirana-shop.onrender.com/api/product/${product.id}/image`),
+                (`${import.meta.env.VITE_API_URL}/product/${product.id}/image`),
                 { responseType: "blob" }
               );
               const imageUrl = URL.createObjectURL(response.data);

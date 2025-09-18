@@ -23,7 +23,7 @@ const Navbar = ({onSelectCategory},  ) => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://e-kirana-shop.onrender.com/api/product`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/product`);
       setSearchResults(response.data);
       console.log(response.data);
     } catch (error) {
@@ -37,7 +37,7 @@ const Navbar = ({onSelectCategory},  ) => {
       setShowSearchResults(true)
     try {
       const response = await axios.get(
-        `https://e-kirana-shop.onrender.com/api/product/search?keyword=${value}`
+        `${import.meta.env.VITE_API_URL}/product/search?keyword=${value}`
       );
       setSearchResults(response.data);
       setNoResults(response.data.length === 0);
@@ -87,7 +87,7 @@ const Navbar = ({onSelectCategory},  ) => {
         <nav className="navbar navbar-expand-lg fixed-top">
           <div className="container-fluid">
             <a className="navbar-brand" href=" https://vivekgpta.github.io/vivek-portfolio/">
-              Vivek
+              VivekG
             </a>
             <button
               className="navbar-toggler"
